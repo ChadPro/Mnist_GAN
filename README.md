@@ -13,5 +13,5 @@ python gan_test.py
 ```python
 python gan_sample.py
 ```
-在tensorboard中的loss如下图:
-![image](https://github.com/ChadPro/Mnist_GAN/raw/master/picutres/loss.png)
+在tensorboard中的loss如下图:  
+![image](https://github.com/ChadPro/Mnist_GAN/raw/master/pictures/loss.png)
