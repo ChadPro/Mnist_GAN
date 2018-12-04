@@ -6,8 +6,7 @@ from __future__ import division
 import tensorflow as tf
 import numpy as np
 import cv2
-
-
+import matplotlib.pyplot as plt
 
 STDDEV = 0.01
 STDDEV1 = 0.1
@@ -77,8 +76,14 @@ with tf.Session() as sess:
     sess.run(init_op)
     gan_saver.restore(sess, "./models/model.ckpt")
 
-    for i in range(10):
+    plt.figure()
+    for i in range(16):
         r = sess.run(G_output, feed_dict={Z:sample_Z(1,IMAGE_SIZE)})
         r = (r[0]+1)*255
         r = np.reshape(r, [28,28])
         cv2.imwrite("demo/"+str(i)+".jpg", r)
+        img = cv2.imread("demo/"+str(i)+".jpg")
+        plt.subplot(4,4,i+1)
+        plt.imshow(img)
+        plt.axis('off')
+    plt.show()
